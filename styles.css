@@ -1,0 +1,308 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  color: hsl(235, 18%, 26%);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: hsl(234, 29%, 20%)
+}
+
+.grid {
+  background-color: hsl(0, 0%, 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-evenly;
+  overflow: hidden;
+  border-radius: 18px;
+  max-width: 700px;
+}
+
+.grid .img img {
+  padding: 17px;
+  max-width: 100%;
+  display: inherit;
+}
+
+.text-content {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  margin: 0 25px;
+  padding: 70px 15px 50px 15px;
+}
+
+.text-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  position: relative;
+  padding-left: 30px;
+  font-size: 11px;
+  margin-bottom: 15px;
+}
+
+li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  background-image: url("assets/images/icon-list.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.sign-up-form * {
+  display: block;
+  width: 100%;
+}
+
+.e-mail-label {
+  font-size: 9px;
+  font-weight: 700;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.form-input {
+  border: 1px solid hsl(246, 25%, 77%);
+  border-radius: 4px;
+  height: 40px;
+  font-size: 11px;
+  text-indent: 20px;
+  margin-bottom: 15px;
+}
+
+input.invalid {
+  border: 1px solid hsl(4, 100%, 67%);
+  color: hsl(4, 100%, 67%);
+  background-color: hsla(4, 100%, 67%, 0.05);
+}
+
+.form-input:hover {
+  cursor: pointer;
+  border: 1px solid hsl(234, 29%, 20%);
+}
+
+.form-input:focus {
+  border: 1px solid hsl(234, 29%, 20%);
+  outline: none;
+  color: hsl(234, 29%, 20%);
+}
+
+.submit-button {
+  background-color: hsl(234, 29%, 20%);
+  height: 40px;
+  color: hsl(0, 0%, 100%);
+  border-radius: 4px;
+  border: transparent;
+  font-weight: 700;
+  font-size: 11px;
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background: linear-gradient(to right, #ff5572, #ff6742);
+  cursor: pointer;
+}
+
+#error-message {
+  color: hsl(4, 100%, 67%);
+  font-size: 9px;
+  text-align: right;
+  justify-self: end;
+}
+
+.paragraph,
+.list ul li {
+  text-shadow: 0 0 1px hsl(235, 18%, 26%)
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: hsl(235, 18%, 26%);
+  place-items: center;
+  z-index: 9999; /* Had an issue with content overlaying but seems to have fixed itself without this lol */
+}
+
+.popup-content {
+  background: hsl(0, 0%, 100%);
+  padding: 30px;
+  border-radius: 8px;
+  font-size: 10px;
+  color: hsl(235, 18%, 26%);
+  line-height: 1.5;
+  text-align: left;
+  display: grid;
+  grid-gap: 20px;
+  font-weight: 400;
+  width: 300px;
+  max-width: 300px; 
+  max-height: 400px; 
+  margin: auto; 
+}
+
+.success-icon {
+  width: 40px;
+  height: auto;
+  justify-self: start;
+}
+
+.popup-header {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: hsl(234, 29%, 20%);
+  line-height: 1;
+}
+
+#dismiss-button {
+  background-color: hsl(234, 29%, 20%);
+  height: 30px;
+  color: hsl(0, 0%, 100%);
+  border-radius: 4px;
+  border: transparent;
+  font-weight: 700;
+  font-size: 11px;
+  transition: background-color 0.3s ease;
+}
+
+.img-mobile {
+  display: none;
+}
+
+/* Was thinking of making some more media queries as it bothers me that I can't view the mobile display without using the dev tools or increasing browser scaling. For some reason when the scaling in chrome is set to a 100% you can't reduce beyond a point, using higher browser scaling it allows it to be reduced further. */
+
+@media (max-width: 375px) {
+  .img-desktop {
+    display: none;
+  }
+
+  .img-mobile {
+    display: grid;
+  }
+
+  .grid {
+    padding: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    border-radius: 0px;
+  }
+
+  .text-content {
+    padding-bottom: 15px;
+  }
+
+  .text-content h1 {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    font-size: 1.8rem;
+  }
+
+  .text-content p {
+    margin-bottom: 18px;
+  }
+
+  li {
+    margin-bottom: 20px;
+  }
+
+  .img-mobile {
+    order: 1;
+  }
+  .text-content {
+    order: 2;
+    padding-top: 20px;
+  }
+
+  .sign-up-form {
+    margin-top: 20px;
+  }
+
+  .img img {
+    width: 100%;
+    height: auto;
+  }
+
+  .grid .img img {
+    padding: 0;
+  }
+
+.popup-content {
+  display: grid;
+  grid-template-rows: 1fr auto auto auto 1fr 1fr;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  grid-template-areas:
+    "."
+    "success-icon"
+    "popup-header"
+    "confirmation-message"
+    "."
+    "dismiss-button";
+}
+
+.success-icon {
+  grid-area: success-icon;
+  align-self: center;
+  justify-self: start;
+}
+
+.popup-header {
+  grid-area: popup-header;
+  align-self: center;
+  justify-self: start;
+}
+
+#confirmation-message {
+  grid-area: confirmation-message;
+  align-self: center;
+  justify-self: start;
+}
+
+#dismiss-button {
+  grid-area: dismiss-button;
+  align-self: end;
+}
+
+}
+

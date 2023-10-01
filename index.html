@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel=" stylesheet" href="styles.css">
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+  <script src="javascript.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="grid">
+    <div class="text-content">
+      <h1 class="header">Stay updated!</h1>
+      <p class="paragraph">Join 60,000+ product managers receiving monthly updates on:</p>
+      <div class="list">
+        <ul>
+        <li>Product discovery and building what matters</li>
+        <li>Measuring to ensure updates are a success</li>
+        <li>And much more!</li>
+        </ul>
+      </div>
+    <form action="submit-registration" class="sign-up-form" novalidate onsubmit="validateForm(event)">
+    <label for="email" class="e-mail-label">Email address<span id="error-message"></span></label>
+    <input type="email" id="email" placeholder="email@company.com" class="form-input" required>
+    <input type="submit" value="Subscribe to monthly newsletter" class="submit-button">
+    </form>
+  </div>
+
+    <div class="img img-desktop">
+    <img src="./assets/images/illustration-sign-up-desktop.svg" alt="illustration">
+    </div>
+    <div class="img img-mobile">
+    <img src="./assets/images/illustration-sign-up-mobile.svg" alt="Illustration">
+    </div>
+    </div>
+  </div>
+  
+  <div id="success-popup" class="popup">
+    <div class="popup-content">
+        <img src="./assets/images/icon-success.svg" alt="Success Icon" class="success-icon">
+        <h3 class="popup-header">Thanks for subscribing!</h3>
+        <p id="confirmation-message">A confirmation email has been sent to email.Please open it and click the button inside to confirm your subscription.</p>
+        <button id="dismiss-button" class="submit-button">Dismiss Message</button>
+    </div>
+</div>
+</body>
+</html>
